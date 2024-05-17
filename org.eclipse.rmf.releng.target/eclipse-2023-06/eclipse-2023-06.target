@@ -36,6 +36,7 @@
             <unit id="javax.xml" version="0.0.0" />
             <unit id="jakarta.xml.bind" version="0.0.0" />
 
+            <!-- siehe https://eclipse.dev/eclipse/news/4.7/platform_isv.php#equinox-ds-felix-scr -->
             <unit id="org.apache.felix.scr" version="0.0.0" />
         </location>
 
