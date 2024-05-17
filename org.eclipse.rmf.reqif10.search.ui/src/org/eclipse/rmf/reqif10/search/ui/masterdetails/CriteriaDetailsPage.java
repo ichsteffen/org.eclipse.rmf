@@ -11,6 +11,12 @@
  ******************************************************************************/
 package org.eclipse.rmf.reqif10.search.ui.masterdetails;
 
+/* for FIXME: org.eclipse.jface.databinding.swt.WidgetProperties --> https://stackoverflow.com/questions/70362249/non-deprecated-data-binding-for-swt-jface 
+ * 
+ * replace org.eclipse.jface.databinding.swt.WidgetProperties -> org.eclipse.jface.databinding.swt.typed.WidgetProperties
+ * 
+*/
+
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.Realm;
@@ -20,8 +26,8 @@ import org.eclipse.emf.databinding.edit.EMFEditObservables;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.databinding.fieldassist.ControlDecorationSupport;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
-import org.eclipse.jface.databinding.viewers.ViewersObservables;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
+import org.eclipse.jface.databinding.viewers.typed.ViewerProperties;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.ISelection;
@@ -227,8 +233,10 @@ public class CriteriaDetailsPage implements IDetailsPage {
 	private Binding bindComboViewer(ComboViewer comboViewer,
 			EStructuralFeature feature) {
 		//
-		IObservableValue target = ViewersObservables
-				.observeSingleSelection(comboViewer);
+		// https://www.vogella.com/tutorials/EclipseDataBinding/article.html#chaining-properties
+		IObservableValue target = ViewerProperties
+				.singleSelection()
+				.observe(comboViewer);
 		IObservableValue model = EMFEditObservables.observeDetailValue(
 				Realm.getDefault(), editingDomain, writableValue, feature);
 		return bindingContext.bindValue(target, model, null, null);
@@ -236,7 +244,7 @@ public class CriteriaDetailsPage implements IDetailsPage {
 
 	private Binding bindButton(Button button, EStructuralFeature feature) {
 		//
-		IObservableValue target = WidgetProperties.selection().observe(button);
+		IObservableValue target = WidgetProperties.buttonSelection().observe(button);
 		IObservableValue model = EMFEditObservables.observeDetailValue(
 				Realm.getDefault(), editingDomain, writableValue, feature);
 		return bindingContext.bindValue(target, model, null, null);

@@ -27,8 +27,8 @@ import org.eclipse.emf.databinding.edit.EMFEditObservables;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.databinding.fieldassist.ControlDecorationSupport;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
-import org.eclipse.jface.databinding.viewers.ViewersObservables;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
+import org.eclipse.jface.databinding.viewers.typed.ViewerProperties;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.ISelection;
@@ -129,7 +129,7 @@ public class RightMappingPart extends Composite {
 	private Binding bindComboViewer(ComboViewer comboViewer,
 			EStructuralFeature feature) {
 		//
-		IObservableValue target = ViewersObservables
+		IObservableValue target = ViewerProperties
 				.observeSingleSelection(comboViewer);
 		IObservableValue model = EMFEditObservables.observeDetailValue(
 				Realm.getDefault(), editingDomain, writableValue, feature);

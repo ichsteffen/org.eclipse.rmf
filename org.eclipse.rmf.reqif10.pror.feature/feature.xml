@@ -104,14 +104,14 @@ Contributors:
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
+-->
    <plugin
          id="org.eclipse.rmf.reqif10.search.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
+<!--
    <plugin
          id="org.eclipse.rmf.reqif10.csv.importer"
          download-size="0"
