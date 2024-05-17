@@ -78,7 +78,8 @@ public class CachingTests extends AbstractContentProviderTests {
 	}
 
 	private void sendData(String commitId, String benchmark, long value) {
-
+		return;
+/**
 		if (commitId == null)
 			return;
 
@@ -149,6 +150,7 @@ public class CachingTests extends AbstractContentProviderTests {
 			if (con != null)
 				con.disconnect();
 		}
+**/
 
 	}
 
