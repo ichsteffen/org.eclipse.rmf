@@ -77,12 +77,17 @@ All rights reserved.   This program and the accompanying materials are made avai
       <feature id="org.eclipse.rmf.reqif10.pror.feature"/>
       <feature id="org.eclipse.rmf.reqif10.feature"/>
       <feature id="org.eclipse.rmf.examples.feature"/>
+
    </features>
 
-   <configurations>
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
+   <configurations>  
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
+
+     <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="2" />
+     <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
+     <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="3" />
+
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="4" />
