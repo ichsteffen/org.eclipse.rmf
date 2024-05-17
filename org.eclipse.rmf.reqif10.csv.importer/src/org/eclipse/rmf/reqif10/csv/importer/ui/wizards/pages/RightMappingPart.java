@@ -130,7 +130,8 @@ public class RightMappingPart extends Composite {
 			EStructuralFeature feature) {
 		//
 		IObservableValue target = ViewerProperties
-				.observeSingleSelection(comboViewer);
+				.singleSelection()
+				.observe(comboViewer);
 		IObservableValue model = EMFEditObservables.observeDetailValue(
 				Realm.getDefault(), editingDomain, writableValue, feature);
 		return bindingContext.bindValue(target, model, null, null);

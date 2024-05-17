@@ -111,21 +111,21 @@ Contributors:
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-<!--
+
    <plugin
          id="org.eclipse.rmf.reqif10.csv.importer"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
--->
+
    <plugin
          id="org.eclipse.rmf.cheatsheets"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-<!--
+
    <plugin
          id="org.eclipse.rmf.reqif10.constraints.ui"
          download-size="0"
@@ -140,6 +140,7 @@ Contributors:
          version="0.0.0"
          unpack="false"/>
 
+<!-- fixme 15
    <plugin
          id="org.eclipse.rmf.reqif10.headlessValidator"
          download-size="0"
