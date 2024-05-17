@@ -49,8 +49,8 @@
         </location -->
         
         <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-        <unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.0.0"/>
-        <repository location="https://download.eclipse.org/sphinx/updates/release/0.13.1/"/>
+            <unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.0.0"/>
+            <repository location="https://download.eclipse.org/sphinx/updates/release/0.13.1/"/>
         </location>
 
         <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">

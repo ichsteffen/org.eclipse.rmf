@@ -42,7 +42,6 @@ Contributors:
          version="0.0.0"
          unpack="false"/>
 
-<!--
    <plugin
          id="org.eclipse.rmf.reqif10.pror.edit"
          download-size="0"
@@ -77,7 +76,7 @@ Contributors:
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
+<!--
    <plugin
          id="org.agilemore.agilegrid"
          download-size="0"
