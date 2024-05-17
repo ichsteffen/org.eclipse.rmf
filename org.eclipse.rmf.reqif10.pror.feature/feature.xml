@@ -140,12 +140,11 @@ Contributors:
          version="0.0.0"
          unpack="false"/>
 
-<!-- fixme 15
    <plugin
          id="org.eclipse.rmf.reqif10.headlessValidator"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
--->
+
 </feature>
