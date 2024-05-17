@@ -71,7 +71,7 @@ All rights reserved.   This program and the accompanying materials are made avai
       <feature id="org.eclipse.emf.edit"/>
       <feature id="org.eclipse.emf.edit.ui"/>
       <feature id="org.eclipse.emf.common.ui"/>
-      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <!-- fixme 16 feature id="org.eclipse.equinox.p2.user.ui"/ -->
       <feature id="org.eclipse.platform"/>
       <feature id="org.eclipse.rcp"/>
       <feature id="org.eclipse.rmf.reqif10.pror.feature"/>

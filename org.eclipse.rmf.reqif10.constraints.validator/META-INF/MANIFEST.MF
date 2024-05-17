@@ -15,5 +15,6 @@ Import-Package: org.eclipse.core.resources,
  org.eclipse.rmf.reqif10.serialization,
  org.osgi.framework;version="1.8.0"
 Require-Bundle: org.eclipse.emf.common,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore,
+ jakarta.xml.bind
 Export-Package: org.eclipse.rmf.reqif10.constraints.validator

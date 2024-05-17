@@ -100,7 +100,7 @@
 		<!-- Validator -->
 		<module>../org.eclipse.rmf.reqif10.constraints</module>
 		<!-- fixme 2 module>../org.eclipse.rmf.reqif10.constraints.ui</module -->
-		<!-- fixme 1 module>../org.eclipse.rmf.reqif10.constraints.validator</module -->
+		<module>../org.eclipse.rmf.reqif10.constraints.validator</module>
 		<!-- fixme 15 module>../org.eclipse.rmf.reqif10.headlessValidator</module -->
 
 		<!-- 3rd Party Dependencies -->
