@@ -41,11 +41,11 @@ jobs:
       #  run: mvn -B package --file pom.xml
         run: |
           cd org.eclipse.rmf.releng
-          mvn clean install -P platform-eclipse-2023-06  -X
+          mvn clean install -P platform-eclipse-2023-06
       - name: Build with Maven (product)
         run: |
           cd org.eclipse.rmf.releng.product
-          mvn clean install -P platform-eclipse-2023-06  -X
+          mvn clean install -P platform-eclipse-2023-06
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
