@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        maven: [ '4.0.7' ]
+        maven: [ '3.9.7' ]
 
     steps:
     - uses: actions/checkout@v4
