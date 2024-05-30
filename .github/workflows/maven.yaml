@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Build Eclipse RMF (based on Eclipse 2023_06) (Java CI with Maven)
 
 on:
   push:
@@ -38,7 +38,6 @@ jobs:
           java-version: 17
           maven-version: ${{ matrix.maven }}
       - name: Build with Maven (bundles)
-      #  run: mvn -B package --file pom.xml
         run: |
           cd org.eclipse.rmf.releng
           mvn clean install -P platform-eclipse-2023-06
@@ -46,18 +45,27 @@ jobs:
         run: |
           cd org.eclipse.rmf.releng.product
           mvn clean install -P platform-eclipse-2023-06
-      - name: Archive production artifacts
+
+      - name: Archive production artifacts (Win x86_64)
         uses: actions/upload-artifact@v3
         with:
-          name: distribution
+          name: org.eclipse.rmf.reqif10.pror.product-win32.win32.x86_64
           path: |
             org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product-win32.win32.x86_64.zip
+
+      - name: Archive production artifacts (MacOS x86_64)
+        uses: actions/upload-artifact@v3
+        with:
+          name: org.eclipse.rmf.reqif10.pror.product-macosx.cocoa.x86_64
+          path: |
             org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product-macosx.cocoa.x86_64.tar.gz
+
+      - name: Archive production artifacts (Linux x86_64)
+        uses: actions/upload-artifact@v3
+        with:
+          name: org.eclipse.rmf.reqif10.pror.product-linux.gtk.x86_64
+          path: |
             org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product-linux.gtk.x86_64.tar.gz
-#            org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product
-#            org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product/win32/win32/x86_64/
-#            org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product/linux/gtk/x86_64/
-#            org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product/macosx/cocoa/x86_64/
 
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
