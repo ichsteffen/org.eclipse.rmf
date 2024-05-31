@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="target-platform.target" sequenceNumber="15">
+    <locations>
+        <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner"
+            includeSource="true" type="InstallableUnit">
+            <repository 
+                location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230531010532/repository/" />
+            <unit id="ch.qos.logback.slf4j" version="0.0.0" />
+            <unit id="ch.qos.logback.slf4j.source" version="0.0.0" />
+        </location>
+        <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner"
+            includeSource="true" type="InstallableUnit">
+            <repository location="https://download.eclipse.org/technology/swtbot/releases/latest" />
+            <unit id="org.eclipse.swtbot.eclipse.feature.group" version="0.0.0" />
+            <unit id="org.eclipse.swtbot.eclipse.test.junit.feature.group" version="0.0.0" />
+            <unit id="org.eclipse.swtbot.feature.group" version="0.0.0" />
+            <unit id="org.eclipse.swtbot.forms.feature.group" version="0.0.0" />
+            <unit id="org.eclipse.swtbot.ide.feature.group" version="0.0.0" />
+        </location>
+        <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner"
+            includeSource="true" type="InstallableUnit">
+            <repository location="https://download.eclipse.org/releases/2023-12" />
+
+            <!-- unit id="org.eclipse.platform.sdk" version="0.0.0" / -->
+            <unit id="org.eclipse.sdk.feature.group" version="0.0.0" />
+            <unit id="org.eclipse.equinox.sdk.feature.group" version="0.0.0" />
+            <unit id="org.eclipse.equinox.p2.sdk.feature.group" version="0.0.0" />
+
+            <unit id="org.eclipse.sdk.ide" version="0.0.0"/>
+            <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
+
+            <unit id="org.eclipse.e4.ui.workbench" version="0.0.0"/>
+
+            <!-- javax -> https://adangel.org/2021/03/20/eclipse-jaxb-java11-osgi/ -->
+            <unit id="javax.xml" version="0.0.0" />
+            <unit id="jakarta.xml.bind" version="0.0.0" />
+
+            <!-- siehe https://eclipse.dev/eclipse/news/4.7/platform_isv.php#equinox-ds-felix-scr -->
+            <unit id="org.apache.felix.scr" version="0.0.0" />
+        </location>
+
+        <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+            <repository location="http://download.eclipse.org/releases/2023-12"/>
+
+            <unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
+            <unit id="org.eclipse.emf.validation.sdk.feature.group" version="0.0.0"/>
+            <unit id="org.eclipse.xsd.sdk.feature.group" version="0.0.0"/>
+        </location>
+        <!-- location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+        <unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.0.0"/>
+        <repository location="http://download.eclipse.org/sphinx/releases/0.9.x/"/>
+        </location -->
+        
+        <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+            <unit id="org.eclipse.sphinx.emf.serialization.feature.group" version="0.0.0"/>
+            <repository location="https://download.eclipse.org/sphinx/updates/release/0.13.1/"/>
+        </location>
+
+        <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+            <!-- unit id="com.google.guava" version="15.0.0.v201403281430"/ -->
+            <!-- unit id="org.apache.poi" version="3.9.0.v201405241750"/ -->
+            <!-- unit id="org.apache.xerces" version="2.9.0.v201101211617"/ -->
+
+            <!-- repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/"/ -->
+            <unit id="com.google.guava" version="0.0.0"/>
+            <unit id="org.apache.poi" version="0.0.0"/>
+            <unit id="org.apache.xerces" version="0.0.0"/>
+            <unit id="org.apache.xml.serializer" version="0.0.0" />
+
+            <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20230531010532/repository/" />
+        </location>
+
+        <!-- 
+            <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner"
+            includeSource="true" type="InstallableUnit">
+            <repository location="https://download.eclipse.org/releases/2022-12" />
+            
+            <unit id="org.junit.jupiter.api" version="0.0.0" />
+            <unit id="org.junit.jupiter.engine" version="0.0.0" />
+            <unit id="org.eclipse.jdt.junit5.runtime" version="0.0.0" />
+            <unit id="org.junit" version="0.0.0" />
+            <unit id="org.hamcrest.core" version="0.0.0" />
+        </location>
+        
+    -->
+
+        <location includeDependencyDepth="infinite" includeDependencyScopes="compile"
+            includeSource="true" missingManifest="generate" type="Maven">
+
+            <feature id="test.libraries.feature" label="Test library feature"
+                version="1.0.0.qualifier">
+
+            </feature>
+            <dependencies>
+                <dependency>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-junit-jupiter</artifactId>
+                    <version>4.3.1</version>
+                    <type>jar</type>
+                </dependency>
+                <dependency>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest</artifactId>
+                    <version>2.2</version>
+                    <type>jar</type>
+                </dependency>
+                <dependency>
+                    <groupId>org.mockito</groupId>
+                    <artifactId>mockito-inline</artifactId>
+                    <version>4.3.1</version>
+                    <type>jar</type>
+                </dependency>
+                <dependency>
+                    <groupId>org.objenesis</groupId>
+                    <artifactId>objenesis</artifactId>
+                    <version>3.2</version>
+                </dependency>
+
+            </dependencies>
+        </location>
+</locations>
+
+</target>
+
+

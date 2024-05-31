@@ -2,3 +2,7 @@
 .JETEmitters
 .gradle/
 /dump/html/
+**/.idea
+**/.project
+org.eclipse.rmf.ext.prostep/.project
+**/*.prefs

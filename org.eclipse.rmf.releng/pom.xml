@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<prerequisites>
-		<maven>3.0</maven>
+		<maven>3.9</maven>
 	</prerequisites>
 	<groupId>org.eclipse.rmf</groupId>
 	<artifactId>org.eclipse.rmf.releng</artifactId>
@@ -44,19 +44,36 @@
         <tycho.version>4.0.7</tycho.version>
 		<antrun.version>1.8</antrun.version>
 		<next.release>0.14.0-SNAPSHOT</next.release>
+
+		<platform.version.name>eclipse-2024-03</platform.version.name>
+
+		<!-- unqualifiedVersion>unqualifiedVersion</unqualifiedVersion>
+		<buildQualifier>buildQualifier</buildQualifier -->
 	</properties>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>repo.eclipse.org</id>
+			<url>https://repo.eclipse.org/content/groups/releases/</url>
+		</pluginRepository>
+	</pluginRepositories>
 	<repositories>
-	<repository>
-      <id>license-feature</id>
-      <url>http://download.eclipse.org/cbi/updates/license/</url>
-      <layout>p2</layout>
-    </repository>
+		<repository>
+		  <id>license-feature</id>
+		  <url>http://download.eclipse.org/cbi/updates/license/</url>
+		  <layout>p2</layout>
+		</repository>
     </repositories>
     
     
 	<modules>
 		<!-- Release Engineering -->
-		<module>../org.eclipse.rmf.releng.target/${platform.version.name}</module>
+		<!-- module>../org.eclipse.rmf.releng.target/${platform.version.name}</module -->
+<!--
+		<module>../org.eclipse.rmf.releng.target/eclipse-2023-06</module>
+		<module>../org.eclipse.rmf.releng.target/eclipse-2023-09</module>
+		<module>../org.eclipse.rmf.releng.target/eclipse-2023-12</module>
+-->
+		<module>../org.eclipse.rmf.releng.target/eclipse-2024-03</module>
 		<module>../org.eclipse.rmf.releng.repository</module>
 
 		<!-- ReqIF Core -->
@@ -112,10 +129,31 @@
 		<!-- RMF Examples Plugins -->
 		<module>../org.eclipse.rmf.examples.installer</module>
 		<module>../org.eclipse.rmf.examples.feature</module>
+
+		<!-- RMF Product -->
+		<module>../org.eclipse.rmf.releng.product</module>
 	</modules>
      
     
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<!-- https://repo.eclipse.org/content/groups/releases/ -->
+					<groupId>org.eclipse.cbi.maven.plugins</groupId>
+					<artifactId>eclipse-jarsigner-plugin</artifactId>
+					<version>1.4.3</version>
+				</plugin>
+				<plugin>
+					<!-- https://mvnrepository.com/artifact/org.eclipse.tycho/tycho-versions-plugin -->
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-versions-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+		</plugins>
+
+		</pluginManagement>
+
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 		    <plugin>
@@ -274,13 +312,7 @@
 							<goal>plugin-source</goal>
 						</goals>
 					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-source-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<executions>
+
 					<execution>
 						<id>feature-source</id>
 						<phase>package</phase>
@@ -351,6 +383,24 @@
 			</properties>
 		</profile>
 		<profile>
+			<id>platform-eclipse-2023-09</id>
+			<properties>
+				<platform.version.name>eclipse-2023-09</platform.version.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>platform-eclipse-2023-12</id>
+			<properties>
+				<platform.version.name>eclipse-2023-12</platform.version.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>platform-eclipse-2024-03</id>
+			<properties>
+				<platform.version.name>eclipse-2024-03</platform.version.name>
+			</properties>
+		</profile>
+		<profile>
 			<id>os-macosx</id>
 			<activation>
 				<os>
@@ -393,9 +443,10 @@
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho.version}</version>
 						<configuration>
-							<includePackedArtifacts>true</includePackedArtifacts>
+							<!-- FIXME includePackedArtifacts>true</includePackedArtifacts -->
 						</configuration>
 					</plugin>
+					<!-- pack200 not supported any more; see https://github.com/eclipse-tycho/tycho/blob/main/RELEASE_NOTES.md#pack200
 					<plugin>
 						<groupId>org.eclipse.tycho.extras</groupId>
 						<artifactId>tycho-pack200a-plugin</artifactId>
@@ -409,10 +460,10 @@
 							</execution>
 						</executions>
 					</plugin>
+					-->
 					<plugin>
 						<groupId>org.eclipse.cbi.maven.plugins</groupId>
 						<artifactId>eclipse-jarsigner-plugin</artifactId>
-						<version>1.0.1</version>
 						<executions>
 							<execution>
 								<id>sign</id>
@@ -422,6 +473,7 @@
 							</execution>
 						</executions>
 					</plugin>
+					<!-- not supported any more: see https://github.com/eclipse-tycho/tycho/blob/main/RELEASE_NOTES.md#pack200
 					<plugin>
 						<groupId>org.eclipse.tycho.extras</groupId>
 						<artifactId>tycho-pack200b-plugin</artifactId>
@@ -434,7 +486,7 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>
+					</plugin -->
 					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-p2-plugin</artifactId>
