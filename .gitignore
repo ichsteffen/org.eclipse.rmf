@@ -3,6 +3,5 @@
 .gradle/
 /dump/html/
 **/.idea
-**/.project
-org.eclipse.rmf.ext.prostep/.project
 **/*.prefs
+.DS_Store
