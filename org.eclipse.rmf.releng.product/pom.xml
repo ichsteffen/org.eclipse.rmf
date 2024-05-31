@@ -80,6 +80,7 @@
 	                                    to="eclipse-rmf-pror-${app.version}-nightly-${maven.build.timestamp}-incubation-\2" />
 	                                <fileset dir="${project.build.directory}/products">
 	                                    <include name="*.zip" />
+										<include name="*.tar.gz" />
 	                                </fileset>
 	                            </move>
 	                        </target>
