@@ -47,19 +47,19 @@ jobs:
         with:
           name: org.eclipse.rmf.reqif10.pror.product-win32.win32.x86_64
           path: |
-            org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product*win32.win32.x86_64.zip
+            org.eclipse.rmf.releng.product/target/products/eclipse-rmf-pror*win32.win32.x86_64.zip
       - name: Archive production artifacts (MacOS x86_64)
         uses: actions/upload-artifact@v3
         with:
           name: org.eclipse.rmf.reqif10.pror.product-macosx.cocoa.x86_64
           path: |
-            org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product*macosx.cocoa.x86_64.tar.gz
+            org.eclipse.rmf.releng.product/target/products/eclipse-rmf-pror*macosx.cocoa.x86_64.tar.gz
       - name: Archive production artifacts (Linux x86_64)
         uses: actions/upload-artifact@v3
         with:
           name: org.eclipse.rmf.reqif10.pror.product-linux.gtk.x86_64
           path: |
-            org.eclipse.rmf.releng.product/target/products/org.eclipse.rmf.reqif10.pror.product*linux.gtk.x86_64.tar.gz
+            org.eclipse.rmf.releng.product/target/products/eclipse-rmf-pror*linux.gtk.x86_64.tar.gz
 
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
