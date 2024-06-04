@@ -59,9 +59,10 @@ jobs:
           name: org.eclipse.rmf.reqif10.pror.product-linux.gtk.x86_64
           path: |
             org.eclipse.rmf.releng.product/target/products/eclipse-rmf-pror*linux.gtk.x86_64.tar.gz
-      
+
       - name: Update nightly release
-        uses: eine/tip@master
+        # https://github.com/pyTooling/Actions/tree/main/releaser
+        uses: pyTooling/Actions/releaser@main
         with:
           tag: nightly
           rm: true
